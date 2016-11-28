@@ -1,0 +1,19 @@
+apply plugin: 'war'
+
+dependencies {
+    compile "org.springframework:spring-webmvc:$spring_version"
+    compile "org.springframework:spring-jms:$spring_version"
+    compile "org.springframework:spring-tx:$spring_version"
+    compile "org.springframework:spring-websocket:$spring_version"
+    compile "org.springframework:spring-context-support:$spring_version"
+    compile "org.springframework:spring-jdbc:$spring_version"
+
+    compile "org.mybatis:mybatis:$mybatis_version"
+    compile 'org.mybatis:mybatis-spring:1.2.4'
+
+    compile 'mysql:mysql-connector-java:5.1.38'
+    compile 'com.google.protobuf:protobuf-java:3.0.0'
+
+    testCompile "org.springframework:spring-test:$spring_version"
+    runtime 'javax.servlet:javax.servlet-api:3.1.0'
+}
