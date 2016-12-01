@@ -9,10 +9,15 @@ dependencies {
     compile "org.springframework:spring-jdbc:$spring_version"
 
     compile "org.mybatis:mybatis:$mybatis_version"
-    compile 'org.mybatis:mybatis-spring:1.2.4'
+    compile 'org.mybatis:mybatis-spring:1.3.0'
+
+    compile 'mysql:mysql-connector-java:6.0.5'
+
+    compile project(':dao')
 
     compile 'mysql:mysql-connector-java:5.1.38'
     compile 'com.google.protobuf:protobuf-java:3.0.0'
+    compile 'com.alibaba:druid:1.0.27'
 
     testCompile "org.springframework:spring-test:$spring_version"
     runtime 'javax.servlet:javax.servlet-api:3.1.0'

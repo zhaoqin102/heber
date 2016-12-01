@@ -2,4 +2,6 @@ rootProject.name = 'heber'
 rootProject.name = 'heber'
 include 'web'
 include 'common'
+include 'dao'
+include 'service'
 
