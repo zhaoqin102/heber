@@ -27,5 +27,6 @@ public class IndexService {
         userInfo.setUsername("zhaoqin102");
         userInfo.setRegisterTime(new Date());
         userInfoMapper.insert(userInfo);
+        System.out.println(userInfo.getId());
     }
 }

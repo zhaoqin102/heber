@@ -42,7 +42,7 @@
         <!-- !!!! Table Configurations !!!! -->
         <table tableName="%" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
-            <generatedKey column="id" sqlStatement="MySql"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true" type="post"/>
         </table>
     </context>
 </generatorConfiguration>
