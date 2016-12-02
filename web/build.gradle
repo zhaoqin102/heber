@@ -19,6 +19,8 @@ dependencies {
     compile 'com.google.protobuf:protobuf-java:3.0.0'
     compile 'com.alibaba:druid:1.0.27'
 
+    compile "org.apache.activemq:activemq-pool:5.14.0"
+
     testCompile "org.springframework:spring-test:$spring_version"
     runtime 'javax.servlet:javax.servlet-api:3.1.0'
 }

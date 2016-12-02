@@ -1,0 +1,4 @@
+dependencies {
+    compile "org.apache.activemq:activemq-pool:5.14.0"
+    compile "org.springframework:spring-jms:$spring_version"
+}

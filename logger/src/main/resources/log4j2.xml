@@ -17,9 +17,6 @@
         <!--</Appender>-->
         <Appender type="List" name="List">
         </Appender>
-        <JMS name="jms" destinationBindingName="logTopic"
-             factoryBindingName="ConnectionFactory"
-             providerURL="tcp://192.168.2.221:61616"/>
     </Appenders>
     <Loggers>
         <Logger name="com.muchu.heber.web.controller.IndexController" level="debug" additivity="false">
@@ -27,7 +24,6 @@
         </Logger>
         <Root level="debug">
             <AppenderRef ref="List"/>
-            <AppenderRef ref="jms"/>
         </Root>
     </Loggers>
 </Configuration>
