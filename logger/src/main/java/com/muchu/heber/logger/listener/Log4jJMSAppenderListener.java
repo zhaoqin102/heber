@@ -1,7 +1,8 @@
 package com.muchu.heber.logger.listener;
 
 import org.apache.activemq.command.ActiveMQObjectMessage;
-import org.slf4j.event.LoggingEvent;
+import org.apache.activemq.command.ActiveMQTextMessage;
+import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -16,8 +17,10 @@ public class Log4jJMSAppenderListener implements MessageListener {
     public void onMessage(Message message) {
         try {
             // receive log event in your consumer
-            LoggingEvent event = (LoggingEvent) ((ActiveMQObjectMessage) message).getObject();
-            System.out.println("Received log [" + event.getLevel() + "]: " + event.getMessage());
+//            Log4jLogEvent event = (Log4jLogEvent) ((ActiveMQObjectMessage) message).getObject();
+//            System.out.println("Received log [" + event.getLevel() + "]: " + event.getMessage());
+            String text = ((ActiveMQTextMessage) message).getText();
+            System.out.println(text);
         } catch (Exception e) {
             e.printStackTrace();
         }

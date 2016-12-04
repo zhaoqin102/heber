@@ -13,14 +13,15 @@
     <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
         <property name="connectionFactory">
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
-                <property name="brokerURL" value="failover:(tcp://192.168.2.211:61616)?randomize=false"/>
+                <property name="brokerURL" value="failover:(tcp://localhost:61616)?randomize=false"/>
+                <property name="trustAllPackages" value="true"/>
             </bean>
         </property>
         <property name="maxConnections" value="100"/>
     </bean>
 
-    <bean id="logQueue" class="org.apache.activemq.command.ActiveMQTopic">
-        <constructor-arg value="ActiveMQ.Advisory.Consumer.Topic.logTopic"/>
+    <bean id="logQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="logTopic"/>
     </bean>
 
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">

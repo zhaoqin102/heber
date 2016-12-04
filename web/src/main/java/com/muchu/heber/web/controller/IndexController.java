@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class IndexController {
 
-    private Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private Logger logger = LoggerFactory.getLogger("jms");
 
     private final IndexService indexService;
 
@@ -26,5 +26,12 @@ public class IndexController {
         logger.info("接到请求");
         indexService.index();
         return new ModelAndView("index");
+    }
+
+    @RequestMapping("update")
+    public ModelAndView update(boolean isSleep, String password) {
+        logger.info("接到请求");
+        indexService.update(isSleep, password);
+        return new ModelAndView("update");
     }
 }
