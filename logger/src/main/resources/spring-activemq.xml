@@ -20,7 +20,7 @@
     </bean>
 
     <bean id="logQueue" class="org.apache.activemq.command.ActiveMQTopic">
-        <constructor-arg value="ActiveMQ.Advisory.Consumer.Topic.logTopic"/>
+        <constructor-arg value="logTopic"/>
     </bean>
 
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
@@ -28,6 +28,10 @@
         <property name="messageConverter">
             <bean class="org.springframework.jms.support.converter.SimpleMessageConverter"/>
         </property>
+        <property name="pubSubDomain" value="true"/>
+        <property name="receiveTimeout" value="10000"/>
+        <property name="explicitQosEnabled" value="true"/>
+        <property name="deliveryMode" value="1"/>
     </bean>
 
     <bean id="log4jJMSAppenderListener" class="com.muchu.heber.logger.listener.Log4jJMSAppenderListener"/>
@@ -36,7 +40,7 @@
         <property name="connectionFactory" ref="pooledConnectionFactory"/>
         <property name="destination" ref="logQueue"/>
         <property name="messageListener" ref="log4jJMSAppenderListener"/>
-        <property name="concurrentConsumers" value="4"/>
+        <property name="concurrentConsumers" value="1"/>
     </bean>
 
 </beans>
