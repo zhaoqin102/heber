@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="debug" strict="true" name="live">
+<Configuration status="error" strict="true" name="live">
     <!--<Properties>-->
     <!--<Property name="filename">~/test.log</Property>-->
     <!--</Properties>-->
@@ -15,20 +15,9 @@
         <!--<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>-->
         <!--</Layout>-->
         <!--</Appender>-->
-        <Appender type="List" name="List">
-        </Appender>
-        <JMS name="jms" destinationBindingName="logTopic" factoryBindingName="ConnectionFactory"
-             providerURL="tcp://localhost:61616"
-             factoryName="org.apache.activemq.jndi.ActiveMQInitialContextFactory">
-            <Layout type="PatternLayout" pattern="%r [%t] %-5p %c – %m%n"/>
-        </JMS>
     </Appenders>
     <Loggers>
-        <Logger name="jms" level="info">
-            <AppenderRef ref="jms"/>
-        </Logger>
-        <Root level="debug">
-            <!--<AppenderRef ref="List"/>-->
+        <Root level="info">
             <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>
