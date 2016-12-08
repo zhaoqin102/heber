@@ -24,14 +24,7 @@ public class IndexController {
     @RequestMapping
     public ModelAndView index() {
         logger.info("接到请求");
-        indexService.index();
         return new ModelAndView("index");
     }
 
-    @RequestMapping("update")
-    public ModelAndView update(boolean isSleep, String password) {
-        logger.info("接到请求");
-        indexService.update(isSleep, password);
-        return new ModelAndView("update");
-    }
 }

@@ -11,6 +11,9 @@ dependencies {
     compile "org.mybatis:mybatis:$mybatis_version"
     compile 'org.mybatis:mybatis-spring:1.3.0'
 
+    compile 'org.apache.commons:commons-lang3:3.5'
+    compile 'org.apache.commons:commons-digester3:3.2'
+
     compile 'mysql:mysql-connector-java:6.0.5'
 
     compile project(':dao')
