@@ -24,6 +24,7 @@ dependencies {
 
     compile "org.apache.activemq:activemq-pool:5.14.0"
 
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+   
     testCompile "org.springframework:spring-test:$spring_version"
-    runtime 'javax.servlet:javax.servlet-api:3.1.0'
 }

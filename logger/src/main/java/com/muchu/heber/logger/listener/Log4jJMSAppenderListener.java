@@ -1,8 +1,6 @@
 package com.muchu.heber.logger.listener;
 
-import org.apache.activemq.command.ActiveMQObjectMessage;
 import org.apache.activemq.command.ActiveMQTextMessage;
-import org.apache.logging.log4j.core.impl.Log4jLogEvent;
 
 import javax.jms.Message;
 import javax.jms.MessageListener;
