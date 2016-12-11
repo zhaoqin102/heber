@@ -4,10 +4,7 @@ import com.muchu.heber.dao.model.UserInfo;
 import com.muchu.heber.web.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author 梁海鹏
@@ -17,10 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @RequestMapping(value = "/${id}", method = RequestMethod.GET)
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/{id}")
     public UserInfo getUserInfo(@PathVariable("id") int id) {
         if (id < 1) {
             return null;
@@ -28,11 +29,24 @@ public class UserController {
         return userService.getUserInfo(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PutMapping
     public UserInfo insertUserInfo(String username, String password) {
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             return null;
         }
         return userService.insertUserInfo(username, password);
+    }
+
+    @PostMapping("/{id}")
+    public UserInfo updateUserInfo(@PathVariable("id") int id, String password) {
+        if (id < 1) {
+            return null;
+        }
+        return userService.updateUserInfo(id, password);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteUserInfo(@PathVariable("id") int id) {
+        return id >= 1 && userService.deleteUserInfo(id);
     }
 }

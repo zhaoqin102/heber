@@ -5,6 +5,8 @@ import com.muchu.heber.dao.model.UserInfo;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -33,5 +35,20 @@ public class UserService {
         userInfo.setRegisterTime(new Date());
         userInfoMapper.insert(userInfo);
         return userInfo;
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public UserInfo updateUserInfo(int id, String password) {
+        UserInfo userInfo = userInfoMapper.selectForUpdate(id);
+        if (userInfo != null) {
+            userInfo.setPassword(DigestUtils.md5Hex(password));
+            userInfoMapper.update(userInfo);
+        }
+        return userInfo;
+    }
+
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public boolean deleteUserInfo(int id) {
+        return userInfoMapper.deleteByPrimaryKey(id) == 1;
     }
 }

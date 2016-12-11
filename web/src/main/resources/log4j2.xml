@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="debug" strict="true" name="live">
+<Configuration status="OFF" strict="true" name="live">
     <!--<Properties>-->
     <!--<Property name="filename">~/test.log</Property>-->
     <!--</Properties>-->
@@ -24,11 +24,7 @@
         </JMS>
     </Appenders>
     <Loggers>
-        <Logger name="jms" level="info">
-            <AppenderRef ref="jms"/>
-        </Logger>
-        <Root level="debug">
-            <!--<AppenderRef ref="List"/>-->
+        <Root level="info">
             <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>
