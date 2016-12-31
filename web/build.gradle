@@ -20,10 +20,9 @@ dependencies {
     compile project(':dao')
 
     compile 'mysql:mysql-connector-java:5.1.38'
-    compile 'com.google.protobuf:protobuf-java:3.0.0'
-    compile 'com.alibaba:druid:1.0.27'
 
-    compile "org.apache.activemq:activemq-pool:5.14.0"
+    compile 'com.google.protobuf:protobuf-java:3.0.0'
+    compile 'com.zaxxer:HikariCP:2.5.1'
 
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
    

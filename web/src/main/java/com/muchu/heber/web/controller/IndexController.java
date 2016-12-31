@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class IndexController {
 
-    private Logger logger = LoggerFactory.getLogger("jms");
+    private Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     private final IndexService indexService;
 

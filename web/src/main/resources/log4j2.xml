@@ -7,21 +7,21 @@
         <Appender type="Console" name="STDOUT">
             <Layout type="PatternLayout" pattern="%d{DEFAULT}[%-5level]  %msg%n"/>
         </Appender>
-        <Appender type="Console" name="FLOW">
-            <Layout type="PatternLayout" pattern="%C{1}.%M %m %ex%n"/><!-- class and line number -->
-        </Appender>
+        <!--<Appender type="Console" name="FLOW">-->
+            <!--<Layout type="PatternLayout" pattern="%C{1}.%M %m %ex%n"/>&lt;!&ndash; class and line number &ndash;&gt;-->
+        <!--</Appender>-->
         <!--<Appender type="File" name="File" fileName="${filename}">-->
         <!--<Layout type="PatternLayout">-->
         <!--<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>-->
         <!--</Layout>-->
         <!--</Appender>-->
-        <Appender type="List" name="List">
-        </Appender>
-        <JMS name="jms" destinationBindingName="logTopic" factoryBindingName="ConnectionFactory"
-             providerURL="tcp://localhost:61616"
-             factoryName="org.apache.activemq.jndi.ActiveMQInitialContextFactory">
-            <Layout type="PatternLayout" pattern="%r [%t] %-5p %c – %m%n"/>
-        </JMS>
+        <!--<Appender type="List" name="List">-->
+        <!--</Appender>-->
+        <!--<JMS name="jms" destinationBindingName="logTopic" factoryBindingName="ConnectionFactory"-->
+             <!--providerURL="tcp://localhost:61616"-->
+             <!--factoryName="org.apache.activemq.jndi.ActiveMQInitialContextFactory">-->
+            <!--<Layout type="PatternLayout" pattern="%r [%t] %-5p %c – %m%n"/>-->
+        <!--</JMS>-->
     </Appenders>
     <Loggers>
         <Root level="info">
