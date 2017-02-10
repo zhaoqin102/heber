@@ -38,12 +38,14 @@ public class FileService {
         return resource;
     }
 
-    public void store(MultipartFile file) {
-        Path resource = Paths.get("/home/zhaoqin102/" + file.getOriginalFilename());
+    public boolean store(MultipartFile file) {
         try {
-            Files.copy(file.getInputStream(), resource);
+            ServletContextResource resource = new ServletContextResource(servletContext, file.getOriginalFilename());
+            Files.copy(file.getInputStream(), resource.getFile().toPath());
+            return true;
         } catch (IOException e) {
             logger.error("Failed to store file " + file.getOriginalFilename(), e);
+            return false;
         }
     }
 }

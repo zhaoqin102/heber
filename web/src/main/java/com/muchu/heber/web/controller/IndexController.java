@@ -29,16 +29,4 @@ public class IndexController {
         logger.info("接到请求");
         return new ModelAndView("index");
     }
-
-    @GetMapping("update")
-    public ModelAndView sessionApi(WebRequest request) {
-        request.setAttribute("user", "name", RequestAttributes.SCOPE_SESSION);
-        return new ModelAndView("update");
-    }
-
-    @GetMapping("session")
-    public Object getUser(WebRequest request) {
-        return request.getAttribute("user", RequestAttributes.SCOPE_SESSION);
-    }
-
 }

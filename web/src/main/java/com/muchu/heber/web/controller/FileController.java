@@ -42,7 +42,7 @@ public class FileController {
     @PostMapping
     public ModelAndView handleFileUpload(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
-            fileService.store(file);
+            boolean store = fileService.store(file);
         }
         return new ModelAndView("update");
     }
@@ -54,6 +54,7 @@ public class FileController {
 
     @ExceptionHandler(FileNotFound.class)
     public ResponseEntity handlerFileNotFound(FileNotFound fileNotFound) {
+        logger.error(fileNotFound.getMessage());
         return ResponseEntity.notFound().build();
     }
 }
