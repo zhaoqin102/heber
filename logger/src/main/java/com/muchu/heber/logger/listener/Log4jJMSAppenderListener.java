@@ -1,9 +1,8 @@
 package com.muchu.heber.logger.listener;
 
-import org.apache.activemq.command.ActiveMQTextMessage;
 
-import javax.jms.Message;
-import javax.jms.MessageListener;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageListener;
 
 /**
  * @author 梁海鹏
@@ -17,8 +16,6 @@ public class Log4jJMSAppenderListener implements MessageListener {
             // receive log event in your consumer
 //            Log4jLogEvent event = (Log4jLogEvent) ((ActiveMQObjectMessage) message).getObject();
 //            System.out.println("Received log [" + event.getLevel() + "]: " + event.getMessage());
-            String text = ((ActiveMQTextMessage) message).getText();
-            System.out.println(text);
         } catch (Exception e) {
             e.printStackTrace();
         }

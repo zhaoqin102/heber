@@ -1,0 +1,24 @@
+<configuration debug="true">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%thread] %-5level %logger - %msg %rootException{full} %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>com.mysql.cj.jdbc.Driver</driverClass>
+            <url>jdbc:mysql://localhost:3306/logs?useSSL=false</url>
+            <user>root</user>
+            <password></password>
+        </connectionSource>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOGGER"/>
+    </root>
+    <logger name="com.muchu" level="info">
+        <appender-ref ref="DB"/>
+    </logger>
+</configuration>

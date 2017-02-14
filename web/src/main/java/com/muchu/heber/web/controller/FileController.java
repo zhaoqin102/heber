@@ -54,7 +54,7 @@ public class FileController {
 
     @ExceptionHandler(FileNotFound.class)
     public ResponseEntity handlerFileNotFound(FileNotFound fileNotFound) {
-        logger.error(fileNotFound.getMessage());
+        logger.error("{} not fount!", fileNotFound.getMessage());
         return ResponseEntity.notFound().build();
     }
 }

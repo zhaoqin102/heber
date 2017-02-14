@@ -13,32 +13,11 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-        <property name="url" value="${mysql.url}"/>
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="username" value="${mysql.username}"/>
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="${mysql.url}"/>
         <property name="password" value="${mysql.password}"/>
-
-        <property name="initialSize" value="2"/>
-        <property name="minIdle" value="2"/>
-        <property name="maxActive" value="10"/>
-
-        <property name="maxWait" value="60000"/>
-
-        <property name="timeBetweenEvictionRunsMillis" value="3600000"/>
-
-        <property name="minEvictableIdleTimeMillis" value="300000"/>
-        <property name="validationQuery" value="SELECT 1 FROM DUAL"/>
-        <property name="testWhileIdle" value="true"/>
-        <property name="testOnBorrow" value="false"/>
-        <property name="testOnReturn" value="false"/>
-
-        <property name="poolPreparedStatements" value="true"/>
-        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
-
-        <!-- 解密密码必须要配置的项 -->
-        <property name="filters" value="stat,slf4j,config"/>
-        <property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${public_key}"/>
-
     </bean>
 
     <bean id="configuration" class="org.apache.ibatis.session.Configuration">
