@@ -12,7 +12,7 @@ public class LogbackTest {
 
     private Logger logger = LoggerFactory.getLogger(LogbackTest.class);
 
-    @Test
+//    @Test
     public void test01() {
         logger.info("rabbit Test");
     }

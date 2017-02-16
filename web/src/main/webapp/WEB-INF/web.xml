@@ -33,8 +33,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 classpath:controller.xml,
-                classpath:service.xml,
-                classpath:dao.xml
+                classpath:service.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>

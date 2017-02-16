@@ -22,7 +22,7 @@ public class PublishTest {
         connectionFactory.setPort(5672);
     }
 
-    @Test
+//    @Test
     public void publish() throws IOException, TimeoutException {
         Connection connection = connectionFactory.newConnection();
         Channel channel = connection.createChannel();
