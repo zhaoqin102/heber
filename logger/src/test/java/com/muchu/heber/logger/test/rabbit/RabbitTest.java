@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
  */
 public class RabbitTest {
 
-    @Test
+//    @Test
     public void product() throws IOException, TimeoutException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("localhost");
@@ -44,7 +44,7 @@ public class RabbitTest {
         connection.close();
     }
 
-    @Test
+//    @Test
     public void publish() {
 
     }

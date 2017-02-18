@@ -1,6 +1,7 @@
 package com.muchu.heber.dao.mapper;
 
 import com.muchu.heber.dao.model.ConsumeLog;
+
 import java.util.List;
 
 public interface ConsumeLogMapper {

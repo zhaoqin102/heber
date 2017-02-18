@@ -5,4 +5,5 @@ include 'common'
 include 'dao'
 include 'service'
 include 'logger'
+include 'proto'
 

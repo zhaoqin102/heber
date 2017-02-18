@@ -1,31 +1,12 @@
-apply plugin: 'com.google.protobuf'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
-    }
-}
 dependencies {
-    compile 'io.grpc:grpc-netty:1.0.1'
-    compile 'io.grpc:grpc-protobuf:1.0.1'
-    compile 'io.grpc:grpc-stub:1.0.1'
-}
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:3.1.0"
-    }
-    plugins {
-        grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.0.2'
-        }
-    }
-    generateProtoTasks {
-        all()*.plugins {
-            grpc {}
-        }
-    }
-}
 
+    compile project(':dao')
+    compile project(':proto')
+    compile "org.springframework:spring-tx:$spring_version"
+    compile "org.springframework:spring-jdbc:$spring_version"
+    compile "org.springframework:spring-context:$spring_version"
+    compile 'com.zaxxer:HikariCP:2.5.1'
+    compile "org.mybatis:mybatis:$mybatis_version"
+    compile 'org.mybatis:mybatis-spring:1.3.0'
+    compile 'mysql:mysql-connector-java:6.0.5'
+}

@@ -1,6 +1,6 @@
 package com.muchu.heber.web.controller;
 
-import com.muchu.heber.dao.model.UserInfo;
+import com.muchu.heber.proto.UserInfo;
 import com.muchu.heber.web.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +47,6 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public boolean deleteUserInfo(@PathVariable("id") int id) {
-        return id >= 1 && userService.deleteUserInfo(id);
+        return id >= 1;
     }
 }

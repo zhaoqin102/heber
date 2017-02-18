@@ -4,7 +4,6 @@ import com.muchu.heber.web.exception.FileNotFound;
 import com.muchu.heber.web.service.FileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.rabbit.logback.AmqpAppender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -43,7 +42,7 @@ public class FileController {
     @PostMapping
     public ModelAndView handleFileUpload(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
-            fileService.store(file);
+            boolean store = fileService.store(file);
         }
         return new ModelAndView("update");
     }
