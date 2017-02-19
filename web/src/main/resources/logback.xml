@@ -10,7 +10,7 @@
             <driverClass>com.mysql.cj.jdbc.Driver</driverClass>
             <url>jdbc:mysql://localhost:3306/logs?useSSL=false</url>
             <user>root</user>
-            <password>ross861227</password>
+            <password></password>
         </connectionSource>
     </appender>
 
