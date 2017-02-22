@@ -4,6 +4,7 @@ import com.muchu.heber.dao.mapper.UserInfoMapper;
 import com.muchu.heber.proto.Request;
 import com.muchu.heber.proto.UserInfo;
 import com.muchu.heber.proto.UserServiceGrpc;
+import com.muchu.heber.service.zookeeper.ZookeeperRegistered;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -29,9 +30,12 @@ public class UserService {
 
     private final UserInfoMapper userInfoMapper;
 
+    private final ZookeeperRegistered zookeeperRegistered;
+
     @Autowired
-    public UserService(UserInfoMapper userInfoMapper) {
+    public UserService(UserInfoMapper userInfoMapper, ZookeeperRegistered zookeeperRegistered) {
         this.userInfoMapper = userInfoMapper;
+        this.zookeeperRegistered = zookeeperRegistered;
     }
 
     public void start() throws IOException {
@@ -40,6 +44,10 @@ public class UserService {
                 .addService(new UserServiceImpl())
                 .build()
                 .start();
+        boolean isRegistered = zookeeperRegistered.registeredService("userService", port + "");
+        if (!isRegistered) {
+            throw new RuntimeException("registered service fail");
+        }
         logger.info("Server started, listening on " + port);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             // Use stderr here since the logger may have been reset by its JVM shutdown hook.

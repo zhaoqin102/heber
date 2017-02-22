@@ -3,12 +3,15 @@ package com.muchu.heber.web.proto;
 import com.muchu.heber.proto.Request;
 import com.muchu.heber.proto.UserInfo;
 import com.muchu.heber.proto.UserServiceGrpc;
+import com.muchu.heber.web.zookeeper.ZookeeperRegistered;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,21 +26,15 @@ public class UserClient {
 
     private final UserServiceGrpc.UserServiceBlockingStub blockingStub;
 
-    /**
-     * Construct client connecting to HelloWorld server at {@code host:port}.
-     */
-    public UserClient(String host, int port) {
-        this(ManagedChannelBuilder.forAddress(host, port)
-                // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
-                // needing certificates.
-                .usePlaintext(true));
-    }
-
-    /**
-     * Construct client for accessing RouteGuide server using the existing channel.
-     */
-    UserClient(ManagedChannelBuilder<?> channelBuilder) {
-        channel = channelBuilder.build();
+    @Autowired
+    public UserClient(ZookeeperRegistered zookeeperRegistered) {
+        String userService = zookeeperRegistered.getServiceList("userService");
+        System.out.println("==================>port:" + userService);
+        if (userService == null || userService.isEmpty()) {
+            throw new RuntimeException("userService no provider");
+        }
+        ManagedChannelBuilder<?> localhost = ManagedChannelBuilder.forAddress("localhost", Integer.parseInt(userService)).usePlaintext(true);
+        channel = localhost.build();
         blockingStub = UserServiceGrpc.newBlockingStub(channel);
     }
 
@@ -45,9 +42,6 @@ public class UserClient {
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    /**
-     * Say hello to server.
-     */
     public UserInfo getUserById(long id) {
         Request request = Request.newBuilder().setId(id).build();
         UserInfo userInfo = null;
@@ -56,6 +50,7 @@ public class UserClient {
         } catch (StatusRuntimeException e) {
             logger.error("RPC failed: {0}", e.getStatus());
         }
+        assert userInfo != null;
         logger.info("Greeting: " + userInfo.getUsername());
         return userInfo;
     }

@@ -6,4 +6,8 @@
 
     <context:component-scan base-package="com.muchu.heber.service.service"/>
 
+    <bean id="zookeeperRegistered" class="com.muchu.heber.service.zookeeper.ZookeeperRegistered">
+        <property name="url" value="localhost:2181"/>
+        <property name="path" value="/service/"/>
+    </bean>
 </beans>
