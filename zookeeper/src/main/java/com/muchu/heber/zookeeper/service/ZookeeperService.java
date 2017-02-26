@@ -1,4 +1,4 @@
-package com.muchu.heber.service.zookeeper;
+package com.muchu.heber.zookeeper.service;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
@@ -9,7 +9,7 @@ import org.apache.zookeeper.data.Stat;
  * @author 梁海鹏
  * @createTime 2017/2/22 10:09
  */
-public class ZookeeperRegistered {
+public class ZookeeperService {
 
     private String url;
 

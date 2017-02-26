@@ -3,7 +3,7 @@ package com.muchu.heber.web.proto;
 import com.muchu.heber.proto.Request;
 import com.muchu.heber.proto.UserInfo;
 import com.muchu.heber.proto.UserServiceGrpc;
-import com.muchu.heber.web.zookeeper.ZookeeperRegistered;
+import com.muchu.heber.zookeeper.client.ZookeeperClient;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -27,8 +26,8 @@ public class UserClient {
     private final UserServiceGrpc.UserServiceBlockingStub blockingStub;
 
     @Autowired
-    public UserClient(ZookeeperRegistered zookeeperRegistered) {
-        String userService = zookeeperRegistered.getServiceList("userService");
+    public UserClient(ZookeeperClient zookeeperClient) {
+        String userService = zookeeperClient.getServiceList("userService");
         System.out.println("==================>port:" + userService);
         if (userService == null || userService.isEmpty()) {
             throw new RuntimeException("userService no provider");

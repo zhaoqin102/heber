@@ -4,7 +4,7 @@ import com.muchu.heber.dao.mapper.UserInfoMapper;
 import com.muchu.heber.proto.Request;
 import com.muchu.heber.proto.UserInfo;
 import com.muchu.heber.proto.UserServiceGrpc;
-import com.muchu.heber.service.zookeeper.ZookeeperRegistered;
+import com.muchu.heber.zookeeper.service.ZookeeperService;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -30,12 +30,12 @@ public class UserService {
 
     private final UserInfoMapper userInfoMapper;
 
-    private final ZookeeperRegistered zookeeperRegistered;
+    private final ZookeeperService zookeeperRegistered;
 
     @Autowired
-    public UserService(UserInfoMapper userInfoMapper, ZookeeperRegistered zookeeperRegistered) {
+    public UserService(UserInfoMapper userInfoMapper, ZookeeperService zookeeperService) {
         this.userInfoMapper = userInfoMapper;
-        this.zookeeperRegistered = zookeeperRegistered;
+        this.zookeeperRegistered = zookeeperService;
     }
 
     public void start() throws IOException {

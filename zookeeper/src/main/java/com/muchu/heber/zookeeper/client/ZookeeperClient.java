@@ -1,4 +1,4 @@
-package com.muchu.heber.web.zookeeper;
+package com.muchu.heber.zookeeper.client;
 
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
@@ -7,7 +7,7 @@ import org.apache.zookeeper.data.Stat;
  * @author 梁海鹏
  * @createTime 2017/2/22 10:09
  */
-public class ZookeeperRegistered {
+public class ZookeeperClient {
 
     private String url;
 
