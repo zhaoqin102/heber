@@ -1,5 +1,6 @@
 package com.muchu.heber.web.proto;
 
+import com.muchu.heber.proto.ClientBoot;
 import com.muchu.heber.proto.Request;
 import com.muchu.heber.proto.UserInfo;
 import com.muchu.heber.proto.UserServiceGrpc;
@@ -19,26 +20,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class UserClient {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserClient.class);
+    private Logger logger = LoggerFactory.getLogger(UserClient.class);
 
-    private final ManagedChannel channel;
-
-    private final UserServiceGrpc.UserServiceBlockingStub blockingStub;
+    private UserServiceGrpc.UserServiceBlockingStub blockingStub;
 
     @Autowired
-    public UserClient(ZookeeperClient zookeeperClient) {
-        String userService = zookeeperClient.getServiceList("userService");
-        System.out.println("==================>port:" + userService);
-        if (userService == null || userService.isEmpty()) {
-            throw new RuntimeException("userService no provider");
-        }
-        ManagedChannelBuilder<?> localhost = ManagedChannelBuilder.forAddress("localhost", Integer.parseInt(userService)).usePlaintext(true);
-        channel = localhost.build();
-        blockingStub = UserServiceGrpc.newBlockingStub(channel);
-    }
-
-    public void shutdown() throws InterruptedException {
-        channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
+    public UserClient(ClientBoot clientBoot) {
+        blockingStub = UserServiceGrpc.newBlockingStub(clientBoot.getChannel());
     }
 
     public UserInfo getUserById(long id) {

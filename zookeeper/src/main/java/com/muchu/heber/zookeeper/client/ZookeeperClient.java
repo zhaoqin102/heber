@@ -1,5 +1,6 @@
 package com.muchu.heber.zookeeper.client;
 
+import com.muchu.heber.Client.ClientConfig;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 
@@ -7,7 +8,7 @@ import org.apache.zookeeper.data.Stat;
  * @author 梁海鹏
  * @createTime 2017/2/22 10:09
  */
-public class ZookeeperClient {
+public class ZookeeperClient implements ClientConfig {
 
     private String url;
 

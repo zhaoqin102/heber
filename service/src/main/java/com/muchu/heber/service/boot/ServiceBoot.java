@@ -1,6 +1,8 @@
 package com.muchu.heber.service.boot;
 
-import com.muchu.heber.service.service.UserService;
+import com.muchu.heber.proto.ServerBoot;
+import com.muchu.heber.service.service.UserServiceImpl;
+import com.muchu.heber.zookeeper.service.ZookeeperService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,9 +16,8 @@ public class ServiceBoot {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:service.xml", "classpath:dao.xml");
-        UserService userService = context.getBean(UserService.class);
-        userService.setPort(50051);
-        userService.start();
-        userService.blockUntilShutdown();
+        ServerBoot serverBoot = context.getBean(ServerBoot.class);
+        serverBoot.start();
+        serverBoot.blockUntilShutdown();
     }
 }

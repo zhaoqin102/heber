@@ -10,7 +10,12 @@
         <property name="url" value="localhost:2181"/>
         <property name="path" value="/service/"/>
     </bean>
+
+    <bean id="clientBoot" class="com.muchu.heber.proto.ClientBoot">
+        <property name="clientConfig" ref="zookeeperClient"/>
+    </bean>
+
     <bean id="userClient" class="com.muchu.heber.web.proto.UserClient">
-        <constructor-arg name="zookeeperClient" ref="zookeeperClient"/>
+        <constructor-arg name="clientBoot" ref="clientBoot"/>
     </bean>
 </beans>

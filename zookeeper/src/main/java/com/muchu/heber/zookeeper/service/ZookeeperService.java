@@ -1,5 +1,6 @@
 package com.muchu.heber.zookeeper.service;
 
+import com.muchu.heber.regist.Registered;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
@@ -9,7 +10,7 @@ import org.apache.zookeeper.data.Stat;
  * @author 梁海鹏
  * @createTime 2017/2/22 10:09
  */
-public class ZookeeperService {
+public class ZookeeperService implements Registered {
 
     private String url;
 
@@ -60,18 +61,15 @@ public class ZookeeperService {
      * @param port        端口号
      * @return 是否注册成功
      */
-    public boolean registeredService(String serviceName, String port) {
+    public boolean registeredServer(String serviceName, int port) {
         try {
-            ZooKeeper zooKeeper = new ZooKeeper(this.url, 3000, event -> {
-                System.out.println("zookeeper connection success");
-                System.out.println("start registered service");
-            });
+            ZooKeeper zooKeeper = new ZooKeeper(this.url, 3000, new ServiceWatch());
             Stat exists = zooKeeper.exists(this.path + serviceName, false);
             if (exists != null) {
-                zooKeeper.setData(this.path + serviceName, port.getBytes(), -1);
+                zooKeeper.setData(this.path + serviceName, String.valueOf(port).getBytes(), -1);
                 return true;
             } else {
-                zooKeeper.create(this.path + serviceName, port.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+                zooKeeper.create(this.path + serviceName, String.valueOf(port).getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
                 return true;
             }
         } catch (Exception e) {
