@@ -60,10 +60,7 @@ public class ZookeeperClient implements ClientConfig {
      */
     public String getServiceList(String serviceName) {
         try {
-            ZooKeeper zooKeeper = new ZooKeeper(this.url, 3000, event -> {
-                System.out.println("zookeeper connection success");
-                System.out.println("start registered service");
-            });
+            ZooKeeper zooKeeper = new ZooKeeper(this.url, 3000, new ClientWatch());
             Stat exists = zooKeeper.exists(this.path + serviceName, false);
             if (exists != null) {
                 byte[] data = zooKeeper.getData(this.path + serviceName, event -> {

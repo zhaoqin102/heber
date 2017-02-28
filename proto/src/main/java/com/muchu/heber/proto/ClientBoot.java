@@ -22,7 +22,7 @@ public class ClientBoot {
 
     public void start() {
         String userService = clientConfig.getServiceList("userService");
-        System.out.println("==================>port:" + userService);
+        logger.info("port:" + userService);
         if (userService == null || userService.isEmpty()) {
             throw new RuntimeException("userService no provider");
         }
