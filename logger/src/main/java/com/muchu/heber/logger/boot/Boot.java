@@ -2,7 +2,6 @@ package com.muchu.heber.logger.boot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -11,14 +10,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Boot {
 
-    private static ClassPathXmlApplicationContext context;
+//    private static ClassPathXmlApplicationContext context;
 
     private static Logger logger = LoggerFactory.getLogger(Boot.class);
 
     public static void main(String[] args) {
         logger.info("logger开始启动");
-        context = new ClassPathXmlApplicationContext(new String[]{"classpath:applicationContext.xml"});
-        context.start();
+//        context = new ClassPathXmlApplicationContext(new String[]{"classpath:applicationContext.xml"});
+//        context.start();
         logger.info("logger启动成功");
         synchronized (Boot.class) {
             do {

@@ -29,6 +29,20 @@ dependencies {
     compile "io.grpc:grpc-stub:${grpcVersion}"
 }
 
+sourceSets {
+  main {
+    proto {
+      // In addition to the default 'src/main/proto'
+      srcDir 'src/main/resources/proto'
+    }
+  }
+  test {
+    proto {
+      srcDir 'src/test/resources/proto'
+    }
+  }
+}
+
 protobuf {
     protoc {
         artifact = 'com.google.protobuf:protoc:3.2.0'

@@ -38,7 +38,7 @@ public class UserClient {
             logger.error("RPC failed: {0}", e.getStatus());
         }
         assert userInfo != null;
-        logger.info("Greeting: " + userInfo.getUsername());
+        logger.info("Greeting: {0}",userInfo.getUsername());
         return userInfo;
     }
 
