@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.muchu.heber.proto";
+option java_outer_classname = "ServiceGrpc";
+
+package proto;
+
+service UserServiceGrpc {
+    rpc GetUserInfoById (RequestId) returns (GrpcUserInfo) {
+    }
+}
+
+message RequestId {
+    int64 id = 1;
+}
+
+message GrpcUserInfo {
+    int64 id = 1;
+    string name = 2;
+    string idCard = 3;
+}
+

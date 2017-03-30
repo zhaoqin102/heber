@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dao.iml" filepath="$PROJECT_DIR$/.idea/modules/dao.iml" group="dao" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dao/dao_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dao/dao_main.iml" group="dao" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dao/dao_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dao/dao_test.iml" group="dao" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/heber.iml" filepath="$PROJECT_DIR$/.idea/modules/heber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/proto.iml" filepath="$PROJECT_DIR$/.idea/modules/proto.iml" group="proto" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/proto/proto_main.iml" filepath="$PROJECT_DIR$/.idea/modules/proto/proto_main.iml" group="proto" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/proto/proto_test.iml" filepath="$PROJECT_DIR$/.idea/modules/proto/proto_test.iml" group="proto" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/registry.iml" filepath="$PROJECT_DIR$/.idea/modules/registry.iml" group="registry" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/registry/registry_main.iml" filepath="$PROJECT_DIR$/.idea/modules/registry/registry_main.iml" group="registry" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/registry/registry_test.iml" filepath="$PROJECT_DIR$/.idea/modules/registry/registry_test.iml" group="registry" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web.iml" filepath="$PROJECT_DIR$/.idea/modules/web.iml" group="web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_main.iml" group="web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_test.iml" group="web" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,6 @@
+rootProject.name = 'heber'
+include 'dao'
+include 'registry'
+include 'proto'
+include 'web'
+

@@ -1,0 +1,64 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : com.muchu : web-1.0-SNAPSHOT.war (exploded)">
+    <output-path>$PROJECT_DIR$/web/build/libs/exploded/web-1.0-SNAPSHOT.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/web/build/libs/exploded/web-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="web_main/web/Web Gradle : web-1.0-SNAPSHOT.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="web_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/web/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.1.8" />
+          <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.21" />
+          <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.7" />
+          <element id="library" level="project" name="Gradle: com.google.http-client:google-http-client-jackson2:1.22.0" />
+          <element id="library" level="project" name="Gradle: com.google.http-client:google-http-client:1.22.0" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.8" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.1.3" />
+          <element id="library" level="project" name="Gradle: com.google.code.findbugs:jsr305:1.3.9" />
+          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.0.1" />
+          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.0.1" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.3" />
+          <element id="library" level="project" name="Gradle: org.apache.zookeeper:zookeeper:3.5.2-alpha" />
+          <element id="library" level="project" name="Gradle: commons-cli:commons-cli:1.2" />
+          <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Gradle: io.netty:netty:3.10.5.Final" />
+          <element id="library" level="project" name="Gradle: net.java.dev.javacc:javacc:5.0" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.6.RELEASE/ea55690d6d61ad70e2569db1e1add1603e427862/spring-webmvc-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jms/4.3.6.RELEASE/f27d7701b9ac1bd9ad92a243f7210ef17dcd63bf/spring-jms-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-websocket/4.3.6.RELEASE/42505e525ece035ea56caee12832911282bc131/spring-websocket-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.6.RELEASE/b0ddc88215dd16e3922c1d937a05627e3710b04c/spring-context-support-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-digester3/3.2/c3f68c5ff25ec5204470fd8fdf4cb8feff5e8a79/commons-digester3-3.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-fileupload/commons-fileupload/1.3.2/5d7491ed6ebd02b6a8d2305f8e6b7fe5dbd95f72/commons-fileupload-1.3.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rabbitmq.jms/rabbitmq-jms/1.6.0/cd1ed40fcda63d97c37f12c513b16b62fd1d3bd9/rabbitmq-jms-1.6.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/6.0.5/9d8df5a1f3273110f2a9ad304961bdd03d696d86/mysql-connector-java-6.0.5.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.6.RELEASE/d70b2393d380cd468d9a14969efaf9022c67c0/spring-aop-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.6.RELEASE/1585715ed598b76a23dac931c27aa039b189eafb/spring-beans-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.6.RELEASE/5f3041020113e3202a7ae9defe36e7b5d2fb87eb/spring-context-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.6.RELEASE/690da099c3c2d2536210f0fd06ff3f336de43ad9/spring-core-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.6.RELEASE/13b53568cfd7b308e70efcbac6cdd0c5d597ba1/spring-expression-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.6.RELEASE/8b8bf8fc6ed4acd5ae0baa6179f1cccc52aaa9aa/spring-web-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.6.RELEASE/3d90c5943c8ee933665a11e95b6ad21e54aac7fc/spring-messaging-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.6.RELEASE/41b8d5a15a8fcdfef9b2422ea2d97df326b6074b/spring-tx-4.3.6.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cglib/cglib/2.2.2/a47a971686474124562bdd4a7ccbd8ac8c3e8b11/cglib-2.2.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.8.3/686ef3410bcf4ab8ce7fd0b899e832aaba5facf7/commons-beanutils-1.8.3.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.2/83b5b8a7ba1c08f9e8c8ff2373724e33d3c1e22a/commons-io-2.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1/c872b46c601d8dc03633288b81269f9e42762cea/geronimo-jms_1.1_spec-1.1.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rabbitmq/amqp-client/4.0.0/a592535a1e865f7aa46892f8350e68de48be0842/amqp-client-4.0.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/asm/asm/3.3.1/1d5f20b4ea675e6fab6ab79f1cd60ec268ddc015/asm-3.3.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.5/6c6c702c89bfff3cd9e80b04d668c5e190d588c6/commons-lang3-3.5.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

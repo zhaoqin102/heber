@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.rabbitmq.jms:rabbitmq-jms:1.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rabbitmq.jms/rabbitmq-jms/1.6.0/cd1ed40fcda63d97c37f12c513b16b62fd1d3bd9/rabbitmq-jms-1.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rabbitmq.jms/rabbitmq-jms/1.6.0/25bf2fdb13e104ef0e2917d4d6cf6938184cad55/rabbitmq-jms-1.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
