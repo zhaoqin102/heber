@@ -1,4 +1,0 @@
-dependencies {
-    compile 'org.apache.zookeeper:zookeeper:3.5.2-alpha'
-    compile project(':proto')
-}
