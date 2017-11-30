@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试摄像头</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="#" method="post" enctype="multipart/form-data">
+    <div>
+        <input id="file" type="file" name="身份证"/>
+        <button id="takePhotoButton" type="button">拍照</button>
+    </div>
+</form>
+<script>
+    function initUserMedia() {
+        if (navigator.mediaDevices === undefined) {
+            navigator.mediaDevices = {};
+        }
+        if (navigator.mediaDevices.getUserMedia === undefined) {
+            navigator.mediaDevices.getUserMedia = function (constraints) {
+                var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+                if (!getUserMedia) {
+                    return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+                }
+                return new Promise(function (resolve, reject) {
+                    getUserMedia.call(navigator, constraints, resolve, reject);
+                });
+            }
+        }
+    }
+    $(document).ready(function () {
+        $('#takePhotoButton').on('click', function () {
+            $('#takePhoto').show();
+            var player = $('#player');
+            var snapshotCanvas = document.getElementById('snapshot');
+            var captureButton = $('#capture');
+            var videoTracks;
+            var handleSuccess = function (stream) {
+                player[0].srcObject = stream;
+                videoTracks = stream.getVideoTracks();
+            };
+
+            captureButton.on('click', function () {
+                var context = snapshot.getContext('2d');
+                context.drawImage(player[0], 0, 0, snapshotCanvas.width,
+                    snapshotCanvas.height);
+                captureButton.html('重拍');
+            });
+            $('#commit').on('click', function () {
+                var image = snapshotCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                var formData = new FormData();
+                formData.append('image', image);
+                videoTracks.forEach(function (track) {
+                    track.stop()
+                });
+                $('#takePhoto').hide();
+            });
+            initUserMedia();
+            navigator.mediaDevices.getUserMedia({video: true})
+                .then(handleSuccess)
+                .catch(function (err) {
+                    console.log(err.name + ": " + err.message);
+                });
+        });
+    });
+
+</script>
+</body>
+</html>
+<div class="modal inmodal" id="takePhoto" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog">
+        <form class="form-horizontal m-t" id="addMessageForm" method="post" action="#">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-body">
+                    <video id="player" width="240" height="160"></video>
+                    <canvas id="snapshot" width=240 height=160></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="commit">确定</button>
+                    <button id="capture" type="button" class="btn btn-white">拍照</button>
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                </div>
+        </form>
+    </div>
+</div>
